@@ -1,1 +1,1507 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Arvinology | هنر، فرهنگ و روایت</title>
+
+  <meta name="description" content="Arvinology | مجموعه آثار هنری، نقاشی‌های اصل و چاپ آثار">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Playfair+Display:wght@400;500&display=swap');
+
+    :root {
+      --bone: #f3efe6;
+      --bone-dark: #e9e3d7;
+      --ink: #1d1b18;
+      --muted: #777168;
+      --line: rgba(29, 27, 24, 0.15);
+      --white: #faf8f3;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 22px 5vw;
+      transition: 0.4s ease;
+    }
+
+    header.scrolled {
+      background: rgba(243, 239, 230, 0.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      direction: ltr;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-size: 13px;
+      direction: ltr;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--ink);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-button {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      padding: 130px 5vw 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 5vw;
+      align-items: center;
+      direction: ltr;
+    }
+
+    .hero-text {
+      direction: rtl;
+      max-width: 520px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(55px, 7vw, 105px);
+      font-weight: 400;
+      line-height: 0.95;
+      margin-bottom: 35px;
+    }
+
+    .hero-description {
+      max-width: 390px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 27px;
+      border: 1px solid var(--ink);
+      font-size: 12px;
+      transition: 0.35s;
+    }
+
+    .button:hover {
+      background: var(--ink);
+      color: var(--bone);
+    }
+
+    .hero-image {
+      height: 75vh;
+      min-height: 520px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bone-dark);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1s ease;
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.025);
+    }
+
+    /* =========================
+       INTRO
+    ========================= */
+
+    .intro {
+      padding: 150px 8vw;
+      text-align: center;
+    }
+
+    .intro p {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 60px);
+      line-height: 1.35;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section {
+      padding: 100px 5vw;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 50px;
+      direction: ltr;
+    }
+
+    .section-title {
+      direction: rtl;
+    }
+
+    .section-title span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 5vw, 68px);
+      font-weight: 400;
+    }
+
+    .view-all {
+      font-size: 12px;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 5px;
+    }
+
+    /* =========================
+       ART GRID
+    ========================= */
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .art-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .art-card:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .art-card:nth-child(2) {
+      grid-column: span 5;
+      margin-top: 90px;
+    }
+
+    .art-card:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .art-card:nth-child(4) {
+      grid-column: span 7;
+      margin-top: 80px;
+    }
+
+    .art-image {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: var(--bone-dark);
+    }
+
+    .art-card:nth-child(1) .art-image,
+    .art-card:nth-child(4) .art-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    .art-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+      display: block;
+    }
+
+    .art-card:hover .art-image img {
+      transform: scale(1.04);
+    }
+
+    .art-info {
+      padding: 17px 0 30px;
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+    }
+
+    .art-info div {
+      direction: rtl;
+    }
+
+    .art-title {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+    }
+
+    .art-meta {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .art-price {
+      font-size: 12px;
+    }
+
+    /* =========================
+       ORIGINAL
+    ========================= */
+
+    .original-section {
+      background: var(--ink);
+      color: var(--bone);
+      margin-top: 100px;
+      padding: 120px 5vw;
+    }
+
+    .original-section .section-title span {
+      color: #aaa49a;
+    }
+
+    .original-section .view-all {
+      border-color: var(--bone);
+    }
+
+    .original-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 6vw;
+      align-items: center;
+      direction: ltr;
+    }
+
+    .original-image {
+      height: 75vh;
+      overflow: hidden;
+    }
+
+    .original-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .original-info {
+      direction: rtl;
+      max-width: 450px;
+    }
+
+    .original-info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    .original-info p {
+      color: #aaa49a;
+      line-height: 2;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .original-details {
+      border-top: 1px solid rgba(243,239,230,0.2);
+      border-bottom: 1px solid rgba(243,239,230,0.2);
+      padding: 20px 0;
+      margin-bottom: 30px;
+    }
+
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+      font-size: 12px;
+    }
+
+    .original-button {
+      border-color: var(--bone);
+      color: var(--bone);
+    }
+
+    .original-button:hover {
+      background: var(--bone);
+      color: var(--ink);
+    }
+
+    /* =========================
+       PRINTS
+    ========================= */
+
+    .prints {
+      padding-top: 150px;
+    }
+
+    .print-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .print-card {
+      background: #eee9de;
+      padding: 15px;
+    }
+
+    .print-image {
+      aspect-ratio: 1 / 1.1;
+      overflow: hidden;
+    }
+
+    .print-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.7s;
+    }
+
+    .print-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .print-info {
+      padding: 20px 5px 8px;
+      direction: rtl;
+    }
+
+    .print-info h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    .print-info p {
+      color: var(--muted);
+      font-size: 11px;
+      margin: 7px 0 14px;
+    }
+
+    .print-bottom {
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+      font-size: 12px;
+    }
+
+    .order-link {
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 3px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      padding: 170px 10vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10vw;
+      align-items: center;
+      direction: ltr;
+    }
+
+    .about-image {
+      height: 650px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text {
+      direction: rtl;
+    }
+
+    .about-text span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .about-text h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(42px, 5vw, 70px);
+      font-weight: 400;
+      margin: 20px 0 30px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 2.1;
+      font-size: 14px;
+      max-width: 470px;
+      margin-bottom: 30px;
+    }
+
+    /* =========================
+       COMMISSION
+    ========================= */
+
+    .commission {
+      padding: 130px 5vw;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .commission span {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .commission h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-size: clamp(45px, 6vw, 90px);
+      margin: 20px auto 30px;
+      max-width: 900px;
+    }
+
+    .commission p {
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 35px;
+      line-height: 2;
+      font-size: 14px;
+    }
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    .newsletter {
+      padding: 110px 5vw;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 45px;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .newsletter-form {
+      max-width: 480px;
+      margin: auto;
+      display: flex;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 15px 5px;
+      font-family: inherit;
+      text-align: right;
+    }
+
+    .newsletter-form button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--ink);
+      color: var(--bone);
+      padding: 80px 5vw 30px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+      padding-bottom: 80px;
+    }
+
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 45px;
+      direction: rtl;
+    }
+
+    .footer-links div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .footer-links span {
+      color: #8e897f;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(243,239,230,0.15);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      color: #777168;
+      font-size: 10px;
+      direction: ltr;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      header {
+        padding: 18px 6vw;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 110px 6vw 50px;
+      }
+
+      .hero-image {
+        order: -1;
+        height: 65vh;
+        min-height: 400px;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+      }
+
+      .intro {
+        padding: 100px 7vw;
+      }
+
+      section {
+        padding: 75px 6vw;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      .view-all {
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .art-grid {
+        display: block;
+      }
+
+      .art-card {
+        margin: 0 0 45px !important;
+      }
+
+      .original-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .original-image {
+        height: 60vh;
+      }
+
+      .original-info {
+        padding-top: 20px;
+      }
+
+      .print-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        padding: 100px 6vw;
+      }
+
+      .about-image {
+        height: 500px;
+      }
+
+      .footer-top {
+        display: block;
+      }
+
+      .footer-links {
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom {
+        display: block;
+        line-height: 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header id="header">
+
+    <nav>
+
+      <a href="#" class="logo">
+        Arvinology
+      </a>
+
+      <div class="nav-links">
+
+        <a href="#works">
+          آثار
+        </a>
+
+        <a href="#original">
+          اصل آثار
+        </a>
+
+        <a href="#prints">
+          چاپ آثار
+        </a>
+
+        <a href="#about">
+          درباره من
+        </a>
+
+        <a href="#contact">
+          ارتباط
+        </a>
+
+      </div>
+
+      <button class="menu-button">
+        ☰
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-text">
+
+        <div class="eyebrow">
+          ARVINOLOGY · ART & CULTURE
+        </div>
+
+        <h1>
+          هر اثر،
+          <br>
+          تکه‌ای از
+          <br>
+          ایران.
+        </h1>
+
+        <p class="hero-description">
+          فضایی برای روایت هنر، فرهنگ و تجربه‌های شخصی من.
+          از نقاشی‌های اصل تا آثاری که برای ماندن در خانه‌های شما بازآفرینی می‌شوند.
+        </p>
+
+        <a href="#works" class="button">
+          مشاهده آثار
+        </a>
+
+      </div>
+
+
+      <div class="hero-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1400&q=85"
+          alt="Artwork"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRO
+    ========================== -->
+
+    <section class="intro">
+
+      <p>
+        هنر برای من فقط چیزی نیست که روی بوم اتفاق می‌افتد؛
+        روشی است برای ثبت چیزهایی که نمی‌خواهم فراموش شوند.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         SELECTED WORKS
+    ========================== -->
+
+    <section id="works">
+
+      <div class="section-header">
+
+        <div class="section-title">
+
+          <span>
+            SELECTED WORKS
+          </span>
+
+          <h2>
+            آثار منتخب
+          </h2>
+
+        </div>
+
+        <a href="#original" class="view-all">
+          مشاهده همه آثار
+        </a>
+
+      </div>
+
+
+      <div class="art-grid">
+
+
+        <article class="art-card">
+
+          <div class="art-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=1200&q=85"
+              alt="Artwork"
+            >
+
+          </div>
+
+          <div class="art-info">
+
+            <div>
+              <div class="art-title">
+                The Chosen
+              </div>
+
+              <div class="art-meta">
+                Oil on Canvas · 2026
+              </div>
+            </div>
+
+            <div class="art-price">
+              €2,400
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="art-card">
+
+          <div class="art-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1000&q=85"
+              alt="Artwork"
+            >
+
+          </div>
+
+          <div class="art-info">
+
+            <div>
+
+              <div class="art-title">
+                Heritage
+              </div>
+
+              <div class="art-meta">
+                Oil on Canvas
+              </div>
+
+            </div>
+
+            <div class="art-price">
+              €1,800
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="art-card">
+
+          <div class="art-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=1000&q=85"
+              alt="Artwork"
+            >
+
+          </div>
+
+          <div class="art-info">
+
+            <div>
+
+              <div class="art-title">
+                Memory
+              </div>
+
+              <div class="art-meta">
+                Oil on Canvas
+              </div>
+
+            </div>
+
+            <div class="art-price">
+              €1,600
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="art-card">
+
+          <div class="art-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?auto=format&fit=crop&w=1200&q=85"
+              alt="Artwork"
+            >
+
+          </div>
+
+          <div class="art-info">
+
+            <div>
+
+              <div class="art-title">
+                Persian Garden
+              </div>
+
+              <div class="art-meta">
+                Oil on Canvas
+              </div>
+
+            </div>
+
+            <div class="art-price">
+              €2,100
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ORIGINAL ART
+    ========================== -->
+
+    <section class="original-section" id="original">
+
+      <div class="section-header">
+
+        <div class="section-title">
+
+          <span>
+            ORIGINAL ARTWORKS
+          </span>
+
+          <h2>
+            اصل آثار
+          </h2>
+
+        </div>
+
+        <a href="#contact" class="view-all">
+          درخواست خرید
+        </a>
+
+      </div>
+
+
+      <div class="original-grid">
+
+        <div class="original-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=1400&q=85"
+            alt="Original artwork"
+          >
+
+        </div>
+
+
+        <div class="original-info">
+
+          <h3>
+            The Chosen
+          </h3>
+
+          <p>
+            یک اثر اصل و دست‌ساز، خلق‌شده با رنگ روغن روی بوم.
+            برای خرید آثار اصل، مستقیماً با من در ارتباط باشید.
+          </p>
+
+
+          <div class="original-details">
+
+            <div class="detail">
+
+              <span>
+                تکنیک
+              </span>
+
+              <span>
+                Oil on Canvas
+              </span>
+
+            </div>
+
+            <div class="detail">
+
+              <span>
+                ابعاد
+              </span>
+
+              <span>
+                80 × 100 cm
+              </span>
+
+            </div>
+
+            <div class="detail">
+
+              <span>
+                سال
+              </span>
+
+              <span>
+                2026
+              </span>
+
+            </div>
+
+            <div class="detail">
+
+              <span>
+                قیمت
+              </span>
+
+              <span>
+                €2,400
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <a href="#contact" class="button original-button">
+            INQUIRE TO PURCHASE
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRINTS
+    ========================== -->
+
+    <section class="prints" id="prints">
+
+      <div class="section-header">
+
+        <div class="section-title">
+
+          <span>
+            ART PRINT COLLECTION
+          </span>
+
+          <h2>
+            چاپ آثار
+          </h2>
+
+        </div>
+
+        <a href="#contact" class="view-all">
+          مشاهده مجموعه
+        </a>
+
+      </div>
+
+
+      <div class="print-grid">
+
+
+        <article class="print-card">
+
+          <div class="print-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=1000&q=85"
+              alt="Print"
+            >
+
+          </div>
+
+          <div class="print-info">
+
+            <h3>
+              The Chosen
+            </h3>
+
+            <p>
+              چاپ هنری با کیفیت بالا
+            </p>
+
+            <div class="print-bottom">
+
+              <span>
+                از ۴۹۰,۰۰۰ تومان
+              </span>
+
+              <a href="#contact" class="order-link">
+                سفارش
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="print-card">
+
+          <div class="print-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=1000&q=85"
+              alt="Print"
+            >
+
+          </div>
+
+          <div class="print-info">
+
+            <h3>
+              Memory
+            </h3>
+
+            <p>
+              چاپ هنری با کیفیت بالا
+            </p>
+
+            <div class="print-bottom">
+
+              <span>
+                از ۴۹۰,۰۰۰ تومان
+              </span>
+
+              <a href="#contact" class="order-link">
+                سفارش
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <article class="print-card">
+
+          <div class="print-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=1000&q=85"
+              alt="Print"
+            >
+
+          </div>
+
+          <div class="print-info">
+
+            <h3>
+              Heritage
+            </h3>
+
+            <p>
+              چاپ هنری با کیفیت بالا
+            </p>
+
+            <div class="print-bottom">
+
+              <span>
+                از ۴۹۰,۰۰۰ تومان
+              </span>
+
+              <a href="#contact" class="order-link">
+                سفارش
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+      <div class="about-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1200&q=85"
+          alt="Artist studio"
+        >
+
+      </div>
+
+
+      <div class="about-text">
+
+        <span>
+          ABOUT ARVINOLOGY
+        </span>
+
+        <h2>
+          فراتر از
+          <br>
+          یک نقاشی.
+        </h2>
+
+        <p>
+          Arvinology یک فضای شخصی برای هنر، فرهنگ و تجربه است.
+          جایی که نقاشی، طراحی و روایت‌های ایرانی در کنار نگاه شخصی من قرار می‌گیرند.
+        </p>
+
+        <p>
+          هدف این نیست که فقط یک اثر روی دیوار قرار بگیرد؛
+          هدف ساختن چیزی است که بخشی از یک داستان بزرگ‌تر باشد.
+        </p>
+
+        <a href="#contact" class="button">
+          بیشتر درباره من
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMMISSION
+    ========================== -->
+
+    <section class="commission" id="contact">
+
+      <span>
+        COMMISSIONS & ORIGINAL WORKS
+      </span>
+
+      <h2>
+        می‌خواهید یک اثر
+        مخصوص شما خلق شود؟
+      </h2>
+
+      <p>
+        برای خرید آثار اصل، سفارش اثر یا همکاری هنری،
+        مستقیماً با من در ارتباط باشید.
+      </p>
+
+      <a
+        href="mailto:YOUR-EMAIL@example.com"
+        class="button"
+      >
+        CONTACT ME
+      </a>
+
+    </section>
+
+
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
+
+    <section class="newsletter">
+
+      <h2>
+        وارد دنیای Arvinology شوید.
+      </h2>
+
+      <p>
+        از آثار جدید و اتفاقات هنری باخبر شوید.
+      </p>
+
+      <form class="newsletter-form">
+
+        <input
+          type="email"
+          placeholder="ایمیل شما"
+          required
+        >
+
+        <button type="submit">
+          JOIN
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        Arvinology
+      </div>
+
+      <div class="footer-links">
+
+        <div>
+
+          <span>
+            EXPLORE
+          </span>
+
+          <a href="#works">
+            آثار
+          </a>
+
+          <a href="#original">
+            اصل آثار
+          </a>
+
+          <a href="#prints">
+            چاپ آثار
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            CONNECT
+          </span>
+
+          <a href="#">
+            Instagram
+          </a>
+
+          <a href="mailto:YOUR-EMAIL@example.com">
+            Email
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Arvinology
+      </span>
+
+      <span>
+        Art · Culture · Identity
+      </span>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+    });
+
+
+    document.querySelector(".newsletter-form")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert("به‌زودی خبرهای جدید Arvinology برای شما ارسال خواهد شد.");
+
+      });
+
+  </script>
+
+</body>
+</html>
