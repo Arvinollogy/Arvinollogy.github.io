@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>آثار | Arvinology</title>
+
+  <style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Estedad:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap');
+
+    :root {
+      --bone: #f3efe6;
+      --bone-dark: #e9e3d7;
+      --ink: #1d1b18;
+      --muted: #777168;
+      --line: rgba(29,27,24,0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bone);
+      color: var(--ink);
+      font-family: "Estedad", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAV */
+
+    header {
+      padding: 25px 5vw;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      direction: ltr;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      direction: rtl;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      opacity: .55;
+    }
+
+    /* PAGE INTRO */
+
+    .page-intro {
+      padding: 130px 7vw 100px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+    }
+
+    .page-intro h1 {
+      font-family: "Estedad", sans-serif;
+      font-weight: 400;
+      font-size: clamp(50px, 7vw, 95px);
+      line-height: 1.2;
+      margin-bottom: 25px;
+    }
+
+    .page-intro p {
+      max-width: 550px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2.2;
+    }
+
+    /* FILTER */
+
+    .filters {
+      padding: 0 5vw 60px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      background: transparent;
+      padding: 10px 22px;
+      font-family: "Estedad", sans-serif;
+      font-size: 11px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .filter:hover,
+    .filter.active {
+      background: var(--ink);
+      color: var(--bone);
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      padding: 0 5vw 130px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(12, 1fr);
+
+      gap: 25px;
+    }
+
+    .work {
+      display: block;
+    }
+
+    .work:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .work:nth-child(2) {
+      grid-column: span 5;
+      margin-top: 100px;
+    }
+
+    .work:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .work:nth-child(4) {
+      grid-column: span 7;
+      margin-top: 100px;
+    }
+
+    .work-image {
+      overflow: hidden;
+      background: var(--bone-dark);
+    }
+
+    .work:nth-child(1) .work-image,
+    .work:nth-child(4) .work-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    .work:nth-child(2) .work-image,
+    .work:nth-child(3) .work-image {
+      aspect-ratio: 4 / 5;
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .8s ease;
+    }
+
+    .work:hover .work-image img {
+      transform: scale(1.035);
+    }
+
+    .work-info {
+      padding: 18px 0 40px;
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+    }
+
+    .work-info-text {
+      direction: rtl;
+    }
+
+    .work-title {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .work-details {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .work-price {
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: var(--ink);
+      color: var(--bone);
+      padding: 70px 5vw 25px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+      padding-bottom: 70px;
+    }
+
+    .footer-logo {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 50px;
+      direction: rtl;
+      font-size: 12px;
+    }
+
+    .footer-links div {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-label {
+      color: #888;
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(243,239,230,.15);
+      padding-top: 20px;
+      color: #777168;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      direction: ltr;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      header {
+        padding: 20px 6vw;
+      }
+
+      .nav-links {
+        gap: 15px;
+        font-size: 10px;
+      }
+
+      .page-intro {
+        padding: 90px 6vw 70px;
+      }
+
+      .gallery {
+        display: block;
+        padding: 0 6vw 80px;
+      }
+
+      .work {
+        margin: 0 0 45px !important;
+      }
+
+      .work-image {
+        aspect-ratio: 4 / 5 !important;
+      }
+
+      .footer-top {
+        display: block;
+      }
+
+      .footer-links {
+        margin-top: 40px;
+        flex-wrap: wrap;
+      }
+
+      .footer-bottom {
+        display: block;
+        line-height: 2;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      Arvinology
+    </a>
+
+    <div class="nav-links">
+
+      <a href="works.html">
+        آثار
+      </a>
+
+      <a href="index.html#original">
+        اصل آثار
+      </a>
+
+      <a href="index.html#prints">
+        چاپ آثار
+      </a>
+
+      <a href="index.html#about">
+        درباره من
+      </a>
+
+      <a href="index.html#contact">
+        ارتباط
+      </a>
+
+    </div>
+
+  </nav>
+
+</header>
+
+
+<main>
+
+
+  <section class="page-intro">
+
+    <div class="eyebrow">
+      ARVINOLOGY · COLLECTION
+    </div>
+
+    <h1>
+      آثار
+    </h1>
+
+    <p>
+      مجموعه‌ای از آثار خلق‌شده در مسیر تجربه،
+      جست‌وجو و روایت شخصی من از هنر و فرهنگ.
+    </p>
+
+  </section>
+
+
+  <div class="filters">
+
+    <button class="filter active">
+      همه آثار
+    </button>
+
+    <button class="filter">
+      اصل آثار
+    </button>
+
+    <button class="filter">
+      نقاشی
+    </button>
+
+    <button class="filter">
+      طراحی
+    </button>
+
+  </div>
+
+
+  <section class="gallery">
+
+
+    <!-- WORK 01 -->
+
+    <a href="the-chosen.html" class="work">
+
+      <div class="work-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?auto=format&fit=crop&w=1400&q=90"
+          alt="The Chosen"
+        >
+
+      </div>
+
+      <div class="work-info">
+
+        <div class="work-info-text">
+
+          <div class="work-title">
+            The Chosen
+          </div>
+
+          <div class="work-details">
+            Oil on Canvas · 2026
+          </div>
+
+        </div>
+
+        <div class="work-price">
+          €2,400
+        </div>
+
+      </div>
+
+    </a>
+
+
+    <!-- WORK 02 -->
+
+    <a href="#" class="work">
+
+      <div class="work-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=1100&q=90"
+          alt="Heritage"
+        >
+
+      </div>
+
+      <div class="work-info">
+
+        <div class="work-info-text">
+
+          <div class="work-title">
+            Heritage
+          </div>
+
+          <div class="work-details">
+            Oil on Canvas
+          </div>
+
+        </div>
+
+        <div class="work-price">
+          €1,800
+        </div>
+
+      </div>
+
+    </a>
+
+
+    <!-- WORK 03 -->
+
+    <a href="#" class="work">
+
+      <div class="work-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1577083288073-40892c0860a4?auto=format&fit=crop&w=1100&q=90"
+          alt="Memory"
+        >
+
+      </div>
+
+      <div class="work-info">
+
+        <div class="work-info-text">
+
+          <div class="work-title">
+            Memory
+          </div>
+
+          <div class="work-details">
+            Oil on Canvas
+          </div>
+
+        </div>
+
+        <div class="work-price">
+          €1,600
+        </div>
+
+      </div>
+
+    </a>
+
+
+    <!-- WORK 04 -->
+
+    <a href="#" class="work">
+
+      <div class="work-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?auto=format&fit=crop&w=1400&q=90"
+          alt="Persian Garden"
+        >
+
+      </div>
+
+      <div class="work-info">
+
+        <div class="work-title">
+          Persian Garden
+        </div>
+
+        <div class="work-price">
+          €2,100
+        </div>
+
+      </div>
+
+    </a>
+
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-top">
+
+    <div class="footer-logo">
+      Arvinology
+    </div>
+
+    <div class="footer-links">
+
+      <div>
+
+        <span class="footer-label">
+          EXPLORE
+        </span>
+
+        <a href="works.html">
+          آثار
+        </a>
+
+        <a href="index.html#original">
+          اصل آثار
+        </a>
+
+        <a href="index.html#prints">
+          چاپ آثار
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <span class="footer-label">
+          CONNECT
+        </span>
+
+        <a href="index.html#contact">
+          ارتباط
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 Arvinology
+    </span>
+
+    <span>
+      Art · Culture · Identity
+    </span>
+
+  </div>
+
+</footer>
+
+
+</body>
+
+</html>
