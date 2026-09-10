@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>آثار | Arvinology</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f7f5f0;
+      color: #171717;
+      font-family: 'Vazirmatn', sans-serif;
+      line-height: 1.8;
+      padding: 0 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      margin-bottom: 50px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: #171717;
+      text-transform: uppercase;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #555;
+      margin-right: 25px;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: #000;
+      font-weight: 500;
+    }
+
+    .page-title-section {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .sub-brand {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #171717;
+      margin-bottom: 15px;
+    }
+
+    .desc {
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 60px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.9rem;
+      color: #444;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #171717;
+      color: #fff;
+      border-color: #171717;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .art-card {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .art-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .img-wrapper {
+      width: 100%;
+      height: 380px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .art-card:hover .img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .card-info {
+      padding: 24px;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 12px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .card-status {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: #f0ede6;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">Arvinology</a>
+      <nav>
+        <a href="index.html">صفحه اصلی</a>
+        <a href="works.html" class="active">آثار</a>
+        <a href="about.html">درباره من</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-title-section">
+        <div class="sub-brand">ARVINOLOGY · COLLECTION</div>
+        <h1>مجموعه آثار</h1>
+        <p class="desc">جست‌وجو و روایت تصویری من در پیوند با فرهنگ و هویت ایرانی.</p>
+      </div>
+
+      <div class="filters">
+        <button class="filter-btn active">همه آثار</button>
+        <button class="filter-btn">اصل آثار</button>
+        <button class="filter-btn">چاپ آثار</button>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- اثر اول -->
+        <article class="art-card">
+          <div class="img-wrapper">
+            <img src="images/painting-01.jpg" alt="اثر شماره یک">
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">اثر شماره یک</h2>
+            <p class="card-meta">120 × 80 cm · Oil on Canvas</p>
+            <span class="card-status">اصل اثر · موجود</span>
+          </div>
+        </article>
+
+        <!-- اثر دوم -->
+        <article class="art-card">
+          <div class="img-wrapper">
+            <img src="images/painting-02.jpg" alt="اثر شماره دو">
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">اثر شماره دو</h2>
+            <p class="card-meta">120 × 80 cm · Oil on Canvas</p>
+            <span class="card-status">چاپ محدود · نسخه ۰۱ از ۳۰</span>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
+    </footer>
+  </div>
+
+</body>
+</html>
 
