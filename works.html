@@ -86,12 +86,12 @@
       margin: 0 auto;
     }
 
-    /* لیست کارت‌ها */
+    /* گرید نمایش آثار با ابعاد کامل */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 40px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .art-card {
@@ -117,26 +117,28 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      padding: 12px;
       position: relative;
     }
 
     .img-wrapper img {
       width: 100%;
-      height: 380px;
-      object-fit: cover;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
       display: block;
-      transition: transform 0.5s ease;
+      border-radius: 4px;
+      transition: transform 0.4s ease;
     }
 
     .art-card:hover .img-wrapper img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
 
     .hover-hint {
       position: absolute;
-      bottom: 15px;
-      background: rgba(23, 23, 23, 0.85);
+      bottom: 20px;
+      background: rgba(23, 23, 23, 0.88);
       color: #ffffff;
       padding: 6px 16px;
       border-radius: 20px;
@@ -152,10 +154,9 @@
     }
 
     .card-info {
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
       justify-content: space-between;
     }
 
@@ -171,7 +172,7 @@
       color: #777;
       direction: ltr;
       text-align: right;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .card-status {
@@ -193,12 +194,12 @@
       color: #635749;
     }
 
-    /* Modal Styling */
+    /* مدال جزئیات */
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
       display: none;
       justify-content: center;
       align-items: center;
@@ -213,7 +214,7 @@
     .modal-box {
       background: #ffffff;
       width: 100%;
-      max-width: 960px;
+      max-width: 980px;
       max-height: 90vh;
       border-radius: 12px;
       display: flex;
@@ -248,7 +249,7 @@
 
     .modal-image-col {
       flex: 1.1;
-      background: #171717;
+      background: #121212;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -289,7 +290,7 @@
       font-size: 0.92rem;
       color: #444;
       line-height: 1.8;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .price-box {
@@ -515,14 +516,12 @@
             ترکیب اصالت فیگور اسب با نقوش فرش دستباف ایرانی. رنگ‌گذاری روغن روی بوم کتان، تداعی‌کننده وقار و شکوه هویت شرقی در بستری معاصر.
           </p>
 
-          <!-- باکس قیمت اصل اثر -->
           <div class="price-box">
             <span class="price-label">قیمت اصل اثر (بوم کتان):</span>
             <span class="price-val">۳۲۰,۰۰۰,۰۰۰ <span style="font-size:0.75rem; font-weight:normal;">تومان</span></span>
           </div>
         </div>
 
-        <!-- بخش چاپ نسخه محدود -->
         <div class="print-box">
           <div class="print-box-header">
             <span class="print-title">چاپ آرشیوی محدود (Limited Edition)</span>
