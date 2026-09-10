@@ -205,7 +205,7 @@
 
     .modal-content {
       background: #ffffff;
-      max-width: 900px;
+      max-width: 920px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -276,24 +276,47 @@
       color: #777;
       direction: ltr;
       text-align: right;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .modal-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: #444;
       line-height: 1.8;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    /* بخش چاپ و خرید */
+    /* باکس قیمت اصل اثر */
+    .original-price-box {
+      background: #fbf9f5;
+      border: 1px solid #e7e2d7;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .original-price-label {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .original-price-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #171717;
+    }
+
+    /* بخش چاپ و انتخاب سایز */
     .purchase-section {
       border-top: 1px solid #eee;
-      padding-top: 20px;
+      padding-top: 18px;
     }
 
     .section-title {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 12px;
       display: flex;
@@ -305,26 +328,37 @@
       font-size: 0.75rem;
       background: #fdf2e9;
       color: #b95000;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 12px;
-      font-weight: normal;
+      font-weight: 500;
     }
 
     .size-selector {
-      display: flex;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
       margin-bottom: 20px;
     }
 
     .size-option {
-      flex: 1;
       border: 1px solid #ddd;
-      padding: 10px 8px;
+      padding: 10px 6px;
       text-align: center;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       transition: all 0.2s;
+    }
+
+    .size-option strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.85rem;
+    }
+
+    .size-option small {
+      color: #666;
+      font-size: 0.72rem;
     }
 
     .size-option.active {
@@ -333,12 +367,16 @@
       color: #fff;
     }
 
+    .size-option.active small {
+      color: #ccc;
+    }
+
     .action-btn {
       width: 100%;
       background: #171717;
       color: #fff;
       border: none;
-      padding: 14px;
+      padding: 13px;
       border-radius: 6px;
       font-family: 'Vazirmatn', sans-serif;
       font-size: 0.95rem;
@@ -373,6 +411,49 @@
       .modal-details-side {
         padding: 25px 20px;
       }
+.action-btn {
+      width: 100%;
+      background: #171717;
+      color: #fff;
+      border: none;
+      padding: 13px;
+      border-radius: 6px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .action-btn:hover {
+      background: #333;
+    }
+
+    .commission-notice {
+      background: #f8f6f0;
+      border: 1px dashed #d5cebf;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #5d5345;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        grid-template-columns: 1fr;
+      }
+      .modal-image-side {
+        padding: 20px;
+      }
+      .modal-details-side {
+        padding: 25px 20px;
+      }
+      .size-selector {
+        grid-template-columns: 1fr;
+      }
     }
 
     footer {
@@ -381,40 +462,8 @@
       font-size: 0.85rem;
       color: #888;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding-top: 30px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <header>
-      <a href="index.html" class="logo">Arvinology</a>
-      <nav>
-        <a href="index.html">صفحه اصلی</a>
-        <a href="works.html" class="active">آثار</a>
-        <a href="about.html">درباره من</a>
-      </nav>
-    </header>
-
-    <main>
-      <div class="page-title-section">
-        <div class="sub-brand">ARVINOLOGY · ARCHIVE & PRINTS</div>
-        <h1>گالری آثار</h1>
-        <p class="desc">برای مشاهده جزئیات اثر، وضعیت اصل تابلو یا گزینه‌های چاپ محدود روی هر اثر کلیک کنید.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <!-- اثر اول: اسب و فرش (دارای چاپ و اصل موجود) -->
-        <article class="art-card" onclick="openModal('modal-horse')">
-          <div class="img-wrapper">
-            <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
-            <span class="hover-hint">مشاهده جزئیات و چاپ</span>
-          </div>
-          <div class="card-info">
-            <h2 class="card-title">تابلوی اسب و فرش</h2>
-            <p class="card-meta">120 × 80 cm · Oil on Canvas</p>
-            <span class="card-status status-original">اصل اثر · نسخه محدود چاپ موجود</span>
+      0 × 80 cm · Oil on Canvas</p>
+            <span class="card-status status-original">اصل اثر موجود · چاپ نسخه محدود</span>
           </div>
         </article>
 
@@ -426,57 +475,66 @@
           </div>
           <div class="card-info">
             <h2 class="card-title">اثر سفارشی (Commissioned)</h2>
-            <p class="card-meta">Private Collection · Oil on Canvas</p>
-            <span class="card-status status-commission">سفارش شخصی · غیرقابل چاپ و فروش</span>
+            <p class="card-meta">Private Collectionworks.html" class="active">آثار</a>
+        <a href="about.html">درباره من</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-title-section">
+        <div class="sub-brand">ARVINOLOGY · ARCHIVE & PRINTS</div>
+        <h1>گالری آثار</h1>
+        <p class="desc">برای مشاهده جزئیات اثر، قیمت اصل تابلو و سفارش نسخه‌های چاپ محدود روی اثر کلیک کنید.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- اثر اول: اسب و فرش (دارای چاپ و اصل موجود) -->
+        <article class="art-card" onclick="openModal('modal-horse')">
+          <div class="img-wrapper">
+            <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
+            <span class="hover-hint">مشاهده قیمت و سفارش چاپ</span>
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">تابلوی اسب و فرش</h2>
+            <p class="card-meta">120 × 80 cm · Oil on Canvas</p>
+            <span class="card-status status-original">اصل اثر موجود · چاپ نسخه محدود</span>
           </div>
         </article>
-      </div>
-    </main>
 
-    <footer>
-      <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
-    </footer>
-  </div>
-
-  <!-- Modal ۱: تابلوی اسب و فرش -->
-  <div id="modal-horse" class="modal-overlay" onclick="closeModalOnBackdrop(event, 'modal-horse')">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('modal-horse')">✕</button>
-      
-      <div class="modal-image-side">
-        <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
-      </div>
-
-      <div class="modal-details-side">
-        <div>
-          <div class="modal-header">
-            <h2>تابلوی اسب و فرش</h2>
-            <div class="modal-meta">120 × 80 cm · Oil on Canvas · 2024</div>
+        <!-- اثر دوم: اثر سفارشی (فقط آرشیو و نمایش) -->
+        <article class="art-card" onclick="openModal('modal-commission')">
+          <div class="img-wrapper">
+            <img src="images/painting-02.jpg" alt="اثر سفارشی">
+            <span class="hover-hint">مشاهده جزئیات اثر</span>
           </div>
-          <p class="modal-desc">
-            تلفیقی نمادین از حرکت و نجابت اسب با نقوش سنتی و اصیل فرش ایرانی؛ روایتی از ریشه‌ها در فرمی معاصر.
-          </p>
+          <div class="card-info">
+            <h2 class="card-title">اثر سفارشی (Commissioned)</h2>
+            <p class="card-meta">Private Collection <span style="font-size:0.8rem; font-weight:normal;">تومان</span></div>
+          </div>
         </div>
 
         <div class="purchase-section">
           <div class="section-title">
-            <span>چاپ نسخه محدود (Limited Fine Art Print)</span>
-            <span class="badge-stock">تنها ۴ نسخه از ۲۵ نسخه باقی‌مانده</span>
+            <span>چاپ نسخه محدود (Fine Art Print)</span>
+            <span class="badge-stock">۱۹ نسخه از ۲۵ نسخه باقی‌مانده</span>
           </div>
           
           <div class="size-selector">
+            <div class="size-option" onclick="selectSize(this)">
+              <strong>سایز متوسط (A2)</strong>
+              <small>42 × 59 cm · کاغذ آرشیوی</small>
+            </div>
+            <div class="size-option" onclick="selectSize(this)">
+              <strong>سایز بزرگ (A1)</strong>
+              <small>59 × 84 cm · بوم کنواس</small>
+            </div>
             <div class="size-option active" onclick="selectSize(this)">
-              <strong>A2</strong> (42×59 cm)<br><small>کاغذ آرشیوی</small>
-            </div>
-            <div class="size-option" onclick="selectSize(this)">
-              <strong>A1</strong> (59×84 cm)<br><small>بوم کنواس</small>
-            </div>
-            <div class="size-option" onclick="selectSize(this)">
-              <strong>اصل تابلو</strong><br><small>120×80 cm</small>
+              <strong>سایز ویژه</strong>
+              <small>70 × 100 cm · بوم کنواس</small>
             </div>
           </div>
 
-          <a href="https://t.me/your_id" target="_blank" class="action-btn">استعلام قیمت و ثبت سفارش</a>
+          <a href="https://t.me/your_id" target="_blank" class="action-btn">استعلام و ثبت سفارش (چاپ / اصل اثر)</a>
         </div>
       </div>
     </div>
@@ -498,11 +556,11 @@
             <div class="modal-meta">Private Collection · Oil on Canvas</div>
           </div>
           <p class="modal-desc">
-            این اثر به صورت انحصاری و اختصاصی برای مجموعه شخصی خلق شده است. به احترام مالک اثر، هیچ‌گونه چاپ یا کپی از این اثر تولید نخواهد شد.
+            این اثر به صورت انحصاری برای مجموعه شخصی خلق شده است. به احترام مالک اثر، هیچ‌گونه چاپ یا بازتولیدی از این اثر انجام نمی‌شود.
           </p>
 
           <div class="commission-notice">
-            📌 <strong>درباره سفارش اختصاصی:</strong> شما می‌توانید برای خلق اثری منحصربه‌فرد بر اساس فضا و ایده مدنظرتان، درخواست سفارش شخصی ثبت کنید.
+            📌 <strong>درباره سفارش اختصاصی:</strong> شما می‌توانید برای خلق اثری منحصربه‌فرد با ابعاد و کانسپت دلخواه خود، درخواست مشاوره و سفارش شخصی ثبت نمایید.
           </div>
         </div>
 
