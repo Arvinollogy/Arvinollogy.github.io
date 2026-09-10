@@ -47,6 +47,11 @@
       text-transform: uppercase;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       text-decoration: none;
       color: #555;
@@ -60,7 +65,7 @@
       font-weight: 600;
     }
 
-    /* ۱. هیرو سکشن — تصویر بدون کادر و بزرگ‌تر */
+    /* ۱. هیرو سکشن */
     .hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -111,7 +116,6 @@
       color: #ffffff;
     }
 
-    /* تصویر بدون کادر، بدون قاب، بزرگ‌تر */
     .hero-img-plain img {
       width: 100%;
       max-height: 640px;
@@ -289,7 +293,6 @@
       color: #ccc;
     }
 
-    /* بخش چاپ اثر */
     .print-section {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -326,8 +329,8 @@
     }
 
     .size-btn {
-      border: 1px solid rgba(255, 0.25);
-      padding: 9px      padding: 9px 4px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 9px 4px;
       text-align: center;
       border-radius: 6px;
       font-size: 0.78rem;
@@ -376,7 +379,7 @@
       background: #dfdedb;
     }
 
-    /* ۵. سکشن فراتر از یک نقاشی */
+    /* ۵. فراتر از یک نقاشی */
     .about-preview-section {
       text-align: center;
       max-width: 760px;
@@ -411,7 +414,6 @@
       margin-top: 10px;
     }
 
-    /* فوتر */
     footer {
       margin-top: 90px;
       text-align: center;
@@ -448,18 +450,19 @@
 <body>
 
   <div class="container">
-    <!-- هدر -->
+    <!-- هدر با ۴ بخش مشخص -->
     <header>
       <a href="index.html" class="logo">Arvinology</a>
       <nav>
         <a href="index.html" class="active">صفحه اصلی</a>
         <a href="works.html">آثار</a>
         <a href="about.html">درباره من</a>
+        <a href="about.html#contact">ارتباط</a>
       </nav>
     </header>
 
     <main>
-      <!-- ۱. هیرو: هر اثر، تکه‌ای از ایران -->
+      <!-- ۱. هیرو -->
       <section class="hero">
         <div class="hero-content">
           <span class="hero-tag">ARVINOLOGY · ART & CULTURE</span>
@@ -474,14 +477,14 @@
         </div>
       </section>
 
-      <!-- ۲. نقل قول استیتمنت -->
+      <!-- ۲. نقل قول -->
       <section class="quote-section">
         <p class="quote-text">
           «هنر برای من فقط چیزی نیست که روی بوم اتفاق می‌افتد؛ روشی است برای ثبت چیزهایی که نمی‌خواهم فراموش شوند.»
         </p>
       </section>
 
-      <!-- ۳. منتخب آثار -->
+      <!-- ۳. آثار منتخب -->
       <section class="featured-section">
         <div class="section-header">
           <h2 class="section-title">آثار منتخب</h2>
@@ -489,7 +492,6 @@
         </div>
 
         <div class="featured-grid">
-          <!-- اثر ۱ -->
           <a href="works.html" class="featured-card">
             <div class="featured-card-img">
               <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
@@ -500,7 +502,6 @@
             </div>
           </a>
 
-          <!-- اثر ۲ -->
           <a href="works.html" class="featured-card">
             <div class="featured-card-img">
               <img src="images/painting-02.jpg" alt="اثر سفارشی">
@@ -513,7 +514,7 @@
         </div>
       </section>
 
-      <!-- ۴. بخش دارک: اصل آثار -->
+      <!-- ۴. سکشن دارک -->
       <section class="dark-original-section">
         <div class="dark-img-wrap">
           <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
@@ -534,9 +535,8 @@
             <div><strong>سال:</strong> 2026</div>
           </div>
 
-          <a href="about.html" class="btn-white">درخواست خرید و مشاوره</a>
+          <a href="about.html#contact" class="btn-white">درخواست خرید و مشاوره</a>
 
-          <!-- بخش چاپ اثر -->
           <div class="print-section">
             <div class="print-header">
               <span class="print-title">چاپ محدود اثر (Limited Edition)</span>
@@ -556,7 +556,7 @@
                 بوم کنواس
               </div>
             </div>
-            <a href="about.html" class="btn-print">سفارش چاپ اثر</a>
+            <a href="about.html#contact" class="btn-print">سفارش چاپ اثر</a>
           </div>
         </div>
       </section>
@@ -575,7 +575,6 @@
       </section>
     </main>
 
-    <!-- فوتر -->
     <footer>
       <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
     </footer>
