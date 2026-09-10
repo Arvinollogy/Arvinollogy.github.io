@@ -61,7 +61,7 @@
 
     .page-title-section {
       text-align: center;
-      margin-bottom: 45px;
+      margin-bottom: 60px;
     }
 
     .sub-brand {
@@ -86,51 +86,27 @@
       margin: 0 auto;
     }
 
-    .filters {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      padding: 7px 20px;
-      border-radius: 30px;
-      font-family: 'Vazirmatn', sans-serif;
-      font-size: 0.85rem;
-      color: #444;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: #171717;
-      color: #fff;
-      border-color: #171717;
-    }
-
+    /* گرید آثار */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 45px;
       align-items: start;
     }
 
     .art-card {
       background: #ffffff;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .art-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
     }
 
     .img-wrapper {
@@ -140,25 +116,42 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      position: relative;
     }
 
     .img-wrapper img {
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
 
     .art-card:hover .img-wrapper img {
-      transform: scale(1.02);
+      transform: scale(1.03);
+    }
+
+    .hover-hint {
+      position: absolute;
+      bottom: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .art-card:hover .hover-hint {
+      opacity: 1;
     }
 
     .card-info {
-      padding: 22px 24px;
+      padding: 24px;
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       margin-bottom: 6px;
       color: #171717;
@@ -167,7 +160,7 @@
     .card-meta {
       font-size: 0.85rem;
       color: #777;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       direction: ltr;
       text-align: right;
     }
@@ -175,7 +168,7 @@
     .card-status {
       display: inline-block;
       font-size: 0.8rem;
-      padding: 4px 12px;
+      padding: 5px 12px;
       border-radius: 4px;
       font-weight: 500;
     }
@@ -188,6 +181,198 @@
     .status-commission {
       background: #eeeae4;
       color: #635749;
+    }
+
+    /* Modal / پنجره جزئیات اثر */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #ffffff;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #fff;
+      border: 1px solid #ddd;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #171717;
+      color: #fff;
+    }
+
+    .modal-image-side {
+      background: #efece6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .modal-image-side img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .modal-details-side {
+      padding: 35px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .modal-header h2 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-meta {
+      font-size: 0.9rem;
+      color: #777;
+      direction: ltr;
+      text-align: right;
+      margin-bottom: 20px;
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    /* بخش چاپ و خرید */
+    .purchase-section {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge-stock {
+      font-size: 0.75rem;
+      background: #fdf2e9;
+      color: #b95000;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: normal;
+    }
+
+    .size-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .size-option {
+      flex: 1;
+      border: 1px solid #ddd;
+      padding: 10px 8px;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .size-option.active {
+      border-color: #171717;
+      background: #171717;
+      color: #fff;
+    }
+
+    .action-btn {
+      width: 100%;
+      background: #171717;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 6px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .action-btn:hover {
+      background: #333;
+    }
+
+    .commission-notice {
+      background: #f8f6f0;
+      border: 1px dashed #d5cebf;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: #5d5345;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        grid-template-columns: 1fr;
+      }
+      .modal-image-side {
+        padding: 20px;
+      }
+      .modal-details-side {
+        padding: 25px 20px;
+      }
     }
 
     footer {
@@ -214,40 +399,35 @@
 
     <main>
       <div class="page-title-section">
-        <div class="sub-brand">ARVINOLOGY · COLLECTION</div>
-        <h1>مجموعه آثار</h1>
-        <p class="desc">جست‌وجو و روایت تصویری من در پیوند با فرهنگ، اصالت و هویت ایرانی.</p>
-      </div>
-
-      <div class="filters">
-        <button class="filter-btn active">همه آثار</button>
-        <button class="filter-btn">اصل آثار</button>
-        <button class="filter-btn">آثار سفارشی</button>
-        <button class="filter-btn">چاپ محدود</button>
+        <div class="sub-brand">ARVINOLOGY · ARCHIVE & PRINTS</div>
+        <h1>گالری آثار</h1>
+        <p class="desc">برای مشاهده جزئیات اثر، وضعیت اصل تابلو یا گزینه‌های چاپ محدود روی هر اثر کلیک کنید.</p>
       </div>
 
       <div class="gallery-grid">
-        <!-- اثر اول: اسب و فرش -->
-        <article class="art-card">
+        <!-- اثر اول: اسب و فرش (دارای چاپ و اصل موجود) -->
+        <article class="art-card" onclick="openModal('modal-horse')">
           <div class="img-wrapper">
             <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
+            <span class="hover-hint">مشاهده جزئیات و چاپ</span>
           </div>
           <div class="card-info">
             <h2 class="card-title">تابلوی اسب و فرش</h2>
             <p class="card-meta">120 × 80 cm · Oil on Canvas</p>
-            <span class="card-status status-original">اصل اثر · موجود جهت فروش</span>
+            <span class="card-status status-original">اصل اثر · نسخه محدود چاپ موجود</span>
           </div>
         </article>
 
-        <!-- اثر دوم: اثر سفارشی -->
-        <article class="art-card">
+        <!-- اثر دوم: اثر سفارشی (فقط آرشیو و نمایش) -->
+        <article class="art-card" onclick="openModal('modal-commission')">
           <div class="img-wrapper">
             <img src="images/painting-02.jpg" alt="اثر سفارشی">
+            <span class="hover-hint">مشاهده جزئیات اثر</span>
           </div>
           <div class="card-info">
             <h2 class="card-title">اثر سفارشی (Commissioned)</h2>
             <p class="card-meta">Private Collection · Oil on Canvas</p>
-            <span class="card-status status-commission">سفارش شخصی · مجموعه خصوصی (غیرقابل چاپ)</span>
+            <span class="card-status status-commission">سفارش شخصی · غیرقابل چاپ و فروش</span>
           </div>
         </article>
       </div>
@@ -257,6 +437,105 @@
       <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
     </footer>
   </div>
+
+  <!-- Modal ۱: تابلوی اسب و فرش -->
+  <div id="modal-horse" class="modal-overlay" onclick="closeModalOnBackdrop(event, 'modal-horse')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-horse')">✕</button>
+      
+      <div class="modal-image-side">
+        <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
+      </div>
+
+      <div class="modal-details-side">
+        <div>
+          <div class="modal-header">
+            <h2>تابلوی اسب و فرش</h2>
+            <div class="modal-meta">120 × 80 cm · Oil on Canvas · 2024</div>
+          </div>
+          <p class="modal-desc">
+            تلفیقی نمادین از حرکت و نجابت اسب با نقوش سنتی و اصیل فرش ایرانی؛ روایتی از ریشه‌ها در فرمی معاصر.
+          </p>
+        </div>
+
+        <div class="purchase-section">
+          <div class="section-title">
+            <span>چاپ نسخه محدود (Limited Fine Art Print)</span>
+            <span class="badge-stock">تنها ۴ نسخه از ۲۵ نسخه باقی‌مانده</span>
+          </div>
+          
+          <div class="size-selector">
+            <div class="size-option active" onclick="selectSize(this)">
+              <strong>A2</strong> (42×59 cm)<br><small>کاغذ آرشیوی</small>
+            </div>
+            <div class="size-option" onclick="selectSize(this)">
+              <strong>A1</strong> (59×84 cm)<br><small>بوم کنواس</small>
+            </div>
+            <div class="size-option" onclick="selectSize(this)">
+              <strong>اصل تابلو</strong><br><small>120×80 cm</small>
+            </div>
+          </div>
+
+          <a href="https://t.me/your_id" target="_blank" class="action-btn">استعلام قیمت و ثبت سفارش</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal ۲: اثر سفارشی -->
+  <div id="modal-commission" class="modal-overlay" onclick="closeModalOnBackdrop(event, 'modal-commission')">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('modal-commission')">✕</button>
+      
+      <div class="modal-image-side">
+        <img src="images/painting-02.jpg" alt="اثر سفارشی">
+      </div>
+
+      <div class="modal-details-side">
+        <div>
+          <div class="modal-header">
+            <h2>اثر سفارشی (Commissioned)</h2>
+            <div class="modal-meta">Private Collection · Oil on Canvas</div>
+          </div>
+          <p class="modal-desc">
+            این اثر به صورت انحصاری و اختصاصی برای مجموعه شخصی خلق شده است. به احترام مالک اثر، هیچ‌گونه چاپ یا کپی از این اثر تولید نخواهد شد.
+          </p>
+
+          <div class="commission-notice">
+            📌 <strong>درباره سفارش اختصاصی:</strong> شما می‌توانید برای خلق اثری منحصربه‌فرد بر اساس فضا و ایده مدنظرتان، درخواست سفارش شخصی ثبت کنید.
+          </div>
+        </div>
+
+        <div class="purchase-section">
+          <a href="about.html" class="action-btn" style="background:#4a4237;">درخواست سفارش اثر اختصاصی</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function closeModalOnBackdrop(event, id) {
+      if (event.target.id === id) {
+        closeModal(id);
+      }
+    }
+
+    function selectSize(element) {
+      const options = element.parentElement.querySelectorAll('.size-option');
+      options.forEach(opt => opt.classList.remove('active'));
+      element.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
