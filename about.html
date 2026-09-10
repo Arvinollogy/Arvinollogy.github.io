@@ -15,7 +15,7 @@
     }
 
     body {
-      background: #f7f5f0;
+      background-color: #f7f5f0;
       color: #171717;
       font-family: 'Vazirmatn', sans-serif;
       line-height: 2.1;
@@ -23,19 +23,19 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 850px;
       margin: 0 auto;
       padding: 40px 0 90px;
     }
 
-    /* هدر */
+    /* منو و سربرگ */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 25px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      margin-bottom: 80px;
+      margin-bottom: 70px;
     }
 
     .logo {
@@ -50,12 +50,12 @@
     nav {
       display: flex;
       align-items: center;
+      gap: 25px;
     }
 
     nav a {
       text-decoration: none;
       color: #555;
-      margin-right: 25px;
       font-size: 0.95rem;
       transition: color 0.2s ease;
     }
@@ -65,7 +65,7 @@
       font-weight: 600;
     }
 
-    /* سربرگ صفحه */
+    /* عنوان صفحه */
     .page-tag {
       display: block;
       text-align: center;
@@ -73,84 +73,167 @@
       letter-spacing: 4px;
       color: #7a6e5f;
       text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .page-title {
       text-align: center;
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       font-weight: 900;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
-    /* متن‌های درباره من */
-    .about-text p {
+    /* متن‌های بیوگرافی */
+    .about-content {
+      max-width: 700px;
+      margin: 0 auto 70px;
+    }
+
+    .about-content p {
       font-size: 1.08rem;
       color: #333;
       text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
+      margin-bottom: 35px;
+      line-height: 2.2;
     }
 
-    .about-text p:last-of-type {
-      margin-bottom: 90px;
-    }
-
-    /* بخش ارتباط */
-    .contact-section {
+    /* کادر ارتباط */
+    .contact-card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 14px;
-      padding: 50px;
+      border-radius: 12px;
+      padding: 45px 30px;
       text-align: center;
       scroll-margin-top: 50px;
     }
 
-    .contact-section h2 {
-      font-size: 1.8rem;
+    .contact-card h2 {
+      font-size: 1.7rem;
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .contact-section p {
+    .contact-card p {
       color: #666;
       font-size: 0.95rem;
-      margin-bottom: 30px;
-      line-height: 1.9;
+      margin-bottom: 25px;
     }
 
-    .contact-links {
+    .contact-actions {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
-    .contact-btn {
+    .btn {
       display: inline-block;
       text-decoration: none;
-      padding: 12px 28px;
+      padding: 12px 26px;
       border-radius: 6px;
       font-size: 0.95rem;
       font-weight: 600;
       transition: all 0.2s ease;
     }
 
-    .contact-btn.primary {
+    .btn-dark {
       background: #171717;
       color: #ffffff;
     }
 
-    .contact-btn.primary:hover {
+    .btn-dark:hover {
       opacity: 0.9;
     }
 
-    .contact-btn.secondary {
+    .btn-outline {
       border: 1.5px solid #171717;
       color: #171717;
     }
 
-    .contact-btn.secondary:hover {
+    .btn-outline:hover {
       background: #171717;
-      color: #fff;
+      color: #ffffff;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 07rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .btn-dark {
+      background: #171717;
+      color: #ffffff;
+    }
+
+    .btn-dark:hover {
+      opacity: 0.9;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #171717;
+      color: #171717;
+    }
+
+    .btn-outline:hover {
+      background: #171717;
+      color: #ffffff;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      font-size: 0 نقاشی برام فقط ساختن یک تصویر نیست؛ بیشتر از همه، رابطه‌سازی با خاطره‌ها و تجربه‌هایی که برام معنا دارن.
+        </p>
+        <p>
+          در این مسیر، فرهنگ و هویت ایرانی همیشه یکی از مهم‌ترین منابع الهام بوده. چیزی که دنبالش می‌کنم، تبدیل کردن نمادها، داستان‌ها و جزئیاتی‌ست که شاید هر روز از کنارشون رد بشیم، ولی هنوز حرفی برای گفتن داشته باشن.
+        </p>
+        <p>
+          این مجموعه شروعِ مسیره؛ مجموعه‌ای که قراره با گذشت زمان بزرگ‌تر بشه و هنر، بخشی از این تصویر رو کامل کنه.
+        </p>
+      </div>
+
+      <!-- بخش تماس و ارتباط -->
+      <section id="contact" class="contact-card">
+        <h2>ارتباط و سفارش اثر</h2>
+        <p>برای مشاوره خرید آثار، چاپ‌های محدود یا همکاری‌های هنری:</p>
+        <div class="contact-actions">
+          <a href="https://instagram.com" target="_blank" class="btn btn-dark">صفحه اینستاگرام</a>
+          <a href="mailto:info@arvinology.art" class="btn btn-outline">ارسال ایمیل</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
+    </footer>
+  </div>
+
+</body>
+</html>
