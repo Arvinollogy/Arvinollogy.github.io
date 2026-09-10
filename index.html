@@ -60,10 +60,10 @@
       font-weight: 600;
     }
 
-    /* ۱. هیرو سکشن */
+    /* ۱. هیرو سکشن — تصویر بدون کادر و بزرگ‌تر */
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 50px;
       align-items: center;
       margin-bottom: 120px;
@@ -111,24 +111,14 @@
       color: #ffffff;
     }
 
-    .hero-img-frame {
-      background: #eeeae4;
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-img-frame img {
+    /* تصویر بدون کادر، بدون قاب، بزرگ‌تر */
+    .hero-img-plain img {
       width: 100%;
+      max-height: 640px;
       height: auto;
-      max-height: 500px;
       object-fit: contain;
-      border-radius: 6px;
       display: block;
+      border-radius: 4px;
     }
 
     /* ۲. استیتمنت هنری نقل‌قول */
@@ -235,7 +225,7 @@
       text-align: right;
     }
 
-    /* ۴. سکشن اثر اصل تاریک (Dark Original Section) */
+    /* ۴. سکشن اصل آثار (دارک) */
     .dark-original-section {
       background: #18191c;
       color: #ffffff;
@@ -248,21 +238,12 @@
       align-items: center;
     }
 
-    .dark-img-wrap {
-      background: #0f1012;
-      padding: 14px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .dark-img-wrap img {
       width: 100%;
       height: auto;
-      max-height: 440px;
+      max-height: 480px;
       object-fit: contain;
-      border-radius: 4px;
+      border-radius: 6px;
       display: block;
     }
 
@@ -306,6 +287,77 @@
       padding: 16px 0;
       font-size: 0.85rem;
       color: #ccc;
+    }
+
+    /* بخش چاپ اثر */
+    .print-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    .print-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .print-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .stock-tag {
+      font-size: 0.72rem;
+      background: rgba(255, 193, 100, 0.15);
+      color: #ffc164;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .size-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .size-btn {
+      border: 1px solid rgba(255, 0.25);
+      padding: 9px      padding: 9px 4px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: #ddd;
+    }
+
+    .size-btn strong {
+      display: block;
+      font-size: 0.85rem;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .btn-print {
+      display: inline-block;
+      background: transparent;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      border: 1.5px solid #ffffff;
+      font-weight: 500;
+      font-size: 0.88rem;
+      margin-top: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-print:hover {
+      background: #ffffff;
+      color: #171717;
     }
 
     .btn-white {
@@ -377,12 +429,18 @@
       .hero-title {
         font-size: 2.3rem;
       }
+      .hero-desc {
+        margin: 0 auto 30px;
+      }
       .quote-text {
         font-size: 1.35rem;
       }
       .dark-original-section {
         grid-template-columns: 1fr;
         padding: 35px 20px;
+      }
+      .size-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -411,7 +469,7 @@
           </p>
           <a href="works.html" class="btn-outline">مشاهده آثار</a>
         </div>
-        <div class="hero-img-frame">
+        <div class="hero-img-plain">
           <img src="images/painting-01.jpg" alt="هر اثر تکه‌ای از ایران">
         </div>
       </section>
@@ -455,28 +513,51 @@
         </div>
       </section>
 
-      <!-- ۴. بخش دارک: اصل آثار (The Chosen) -->
+      <!-- ۴. بخش دارک: اصل آثار -->
       <section class="dark-original-section">
         <div class="dark-img-wrap">
-          <img src="images/painting-01.jpg" alt="The Chosen - Original Artwork">
+          <img src="images/painting-01.jpg" alt="تابلوی اسب و فرش">
         </div>
 
         <div class="dark-content">
           <span class="sub-tag">ORIGINAL ARTWORKS</span>
           <h2>اصل آثار</h2>
-          <div class="artwork-title">The Chosen</div>
+          <div class="artwork-title">«اسب و فرش»</div>
           <p class="dark-desc">
             یک اثر اصل و دست‌ساز، خلق‌شده با رنگ‌روغن روی بوم. برای خرید آثار اصل، مستقیماً با من در ارتباط باشید.
           </p>
 
           <div class="dark-meta-grid">
+            <div><strong>نام تابلو:</strong> اسب و فرش</div>
             <div><strong>تکنیک:</strong> Oil on Canvas</div>
             <div><strong>ابعاد:</strong> 120 × 80 cm</div>
-            <div><strong>سال:</strong> 2024</div>
-            <div><strong>وضعیت:</strong> موجود در گالری</div>
+            <div><strong>سال:</strong> 2026</div>
           </div>
 
           <a href="about.html" class="btn-white">درخواست خرید و مشاوره</a>
+
+          <!-- بخش چاپ اثر -->
+          <div class="print-section">
+            <div class="print-header">
+              <span class="print-title">چاپ محدود اثر (Limited Edition)</span>
+              <span class="stock-tag">۱۹ از ۲۵ نسخه باقی‌مانده</span>
+            </div>
+            <div class="size-grid">
+              <div class="size-btn">
+                <strong>سایز A2</strong>
+                42 × 59 cm
+              </div>
+              <div class="size-btn">
+                <strong>سایز A1</strong>
+                59 × 84 cm
+              </div>
+              <div class="size-btn">
+                <strong>سایز ۱۰۰×۷۰</strong>
+                بوم کنواس
+              </div>
+            </div>
+            <a href="about.html" class="btn-print">سفارش چاپ اثر</a>
+          </div>
         </div>
       </section>
 
