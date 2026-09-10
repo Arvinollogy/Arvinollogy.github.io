@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>درباره من | Arvinology</title>
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -18,24 +17,24 @@
       background-color: #f7f5f0;
       color: #171717;
       font-family: 'Vazirmatn', sans-serif;
-      line-height: 2.1;
+      line-height: 1.9;
       padding: 0 24px;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 40px 0 90px;
     }
 
-    /* منو و سربرگ */
+    /* هدر یکپارچه */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 25px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      margin-bottom: 70px;
+      margin-bottom: 60px;
     }
 
     .logo {
@@ -66,172 +65,193 @@
     }
 
     /* عنوان صفحه */
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
     .page-tag {
       display: block;
-      text-align: center;
       font-size: 0.8rem;
       letter-spacing: 4px;
       color: #7a6e5f;
       text-transform: uppercase;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .page-title {
-      text-align: center;
-      font-size: 2.6rem;
+      font-size: 2.3rem;
       font-weight: 900;
-      margin-bottom: 50px;
+      color: #171717;
     }
 
-    /* متن‌های بیوگرافی */
-    .about-content {
-      max-width: 700px;
-      margin: 0 auto 70px;
-    }
-
-    .about-content p {
-      font-size: 1.08rem;
-      color: #333;
-      text-align: center;
-      margin-bottom: 35px;
-      line-height: 2.2;
-    }
-
-    /* کادر ارتباط */
-    .contact-card {
+    /* متن بیوگرافی و مانیفست */
+    .about-card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.07);
       border-radius: 12px;
-      padding: 45px 30px;
+      padding: 45px;
+      margin-bottom: 50px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .about-content p {
+      font-size: 1.05rem;
+      color: #333333;
+      margin-bottom: 24px;
+      text-align: justify;
+      line-height: 2.1;
+    }
+
+    .about-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-quote {
+      border-right: 3px solid #7a6e5f;
+      padding-right: 20px;
+      margin: 30px 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #171717;
+      background: #faf8f5;
+      padding: 18px 20px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* بخش ارتباط و سفارش */
+    .contact-section {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 12px;
+      padding: 40px;
       text-align: center;
-      scroll-margin-top: 50px;
+      scroll-margin-top: 40px;
     }
 
-    .contact-card h2 {
-      font-size: 1.7rem;
+    .contact-title {
+      font-size: 1.4rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      color: #171717;
     }
 
-    .contact-card p {
-      color: #666;
+    .contact-desc {
       font-size: 0.95rem;
-      margin-bottom: 25px;
+      color: #666;
+      margin-bottom: 28px;
     }
 
     .contact-actions {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 15px;
       flex-wrap: wrap;
     }
 
-    .btn {
-      display: inline-block;
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
-      padding: 12px 26px;
+      padding: 12px 28px;
       border-radius: 6px;
       font-size: 0.95rem;
       font-weight: 600;
       transition: all 0.2s ease;
     }
 
-    .btn-dark {
+    .btn-contact.primary {
       background: #171717;
       color: #ffffff;
     }
 
-    .btn-dark:hover {
-      opacity: 0.9;
+    .btn-contact.primary:hover {
+      background: #333333;
     }
 
-    .btn-outline {
-      border: 1.5px solid #171717;
-      color: #171717;
+    .btn-contact.secondary {
+      background: #faf8f5;
+      border: 1.5px solid #ded6ca;
+      color: #2c2925;
     }
 
-    .btn-outline:hover {
-      background: #171717;
-      color: #ffffff;
+    .btn-contact.secondary:hover {
+      background: #f0ebe1;
     }
 
     footer {
-      margin-top: 80px;
       text-align: center;
-      font-size: 07rem;
-      font-weight: 800;
-      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: #888;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 30px;
+      margin-top: 70px;
     }
 
-    .contact-card p {
-      color: #666;
-      font-size: 0.95rem;
-      margin-bottom: 25px;
+    @media (max-width: 650px) {
+      .about-card, .contact-section {
+        padding: 25px;
+      }
+      .page-title {
+        font-size: 1.9rem;
+      }
     }
+  </style>
+</head>
+<body>
 
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo">Arvinology</a>
+      <nav>
+        <a href="index.html">صفحه اصلی</a>
+        <a href="works.html">آثار</a>
+        <a href="about.html" class="active">درباره من</a>
+        <a href="#contact">ارتباط</a>
+      </nav>
+    </header>
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      padding: 12px 26px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-    }
-
-    .btn-dark {
-      background: #171717;
-      color: #ffffff;
-    }
-
-    .btn-dark:hover {
-      opacity: 0.9;
-    }
-
-    .btn-outline {
-      border: 1.5px solid #171717;
-      color: #171717;
-    }
-
-    .btn-outline:hover {
-      background: #171717;
-      color: #ffffff;
-    }
-
-    footer {
-      margin-top: 80px;
-      text-align: center;
-      font-size: 0 نقاشی برام فقط ساختن یک تصویر نیست؛ بیشتر از همه، رابطه‌سازی با خاطره‌ها و تجربه‌هایی که برام معنا دارن.
-        </p>
-        <p>
-          در این مسیر، فرهنگ و هویت ایرانی همیشه یکی از مهم‌ترین منابع الهام بوده. چیزی که دنبالش می‌کنم، تبدیل کردن نمادها، داستان‌ها و جزئیاتی‌ست که شاید هر روز از کنارشون رد بشیم، ولی هنوز حرفی برای گفتن داشته باشن.
-        </p>
-        <p>
-          این مجموعه شروعِ مسیره؛ مجموعه‌ای که قراره با گذشت زمان بزرگ‌تر بشه و هنر، بخشی از این تصویر رو کامل کنه.
-        </p>
+    <main>
+      <div class="page-header">
+        <span class="page-tag">ARVINOLOGY · MANIFESTO</span>
+        <h1 class="page-title">درباره آروین مرادی</h1>
       </div>
 
-      <!-- بخش تماس و ارتباط -->
-      <section id="contact" class="contact-card">
-        <h2>ارتباط و سفارش اثر</h2>
-        <p>برای مشاوره خرید آثار، چاپ‌های محدود یا همکاری‌های هنری:</p>
+      <section class="about-card">
+        <div class="about-content">
+          <p>
+            هنر برای من نه صرفاً بازنمایی بصری، بلکه کاوشی پیوسته در میان هویت، سنت و زبان معاصر است. در پروژه‌ی <strong>Arvinology</strong>، تلاش می‌کنم پلی میان ریشه‌های عمیق هنر و فرهنگ ایرانی با ساختارهای مدرن و مینیمال خلق کنم.
+          </p>
+
+          <div class="highlight-quote">
+            «تار و پود اصالت و موتیف‌های بومی در مواجهه با فرم‌های معاصر، زبانی نو برای روایت تاریخ و احساس می‌سازند.»
+          </div>
+
+          <p>
+            تمرکز من بر خلق آثاری با هویت اصیل، بهره‌گیری از نمادها و موتیف‌های شرقی در فضایی امروزین، و همچنین هدایت فضاهای گفت‌وگو و رویدادهای هنری در راستای پیوند جامعه با هنرهای تجسمی است. هر اثر داستانی اختصاصی از پیوند میان گذشته و اکنون را بازگو می‌کند.
+          </p>
+        </div>
+      </section>
+
+      <!-- بخش ارتباط و ثبت سفارش اثر -->
+      <section id="contact" class="contact-section">
+        <h2 class="contact-title">ارتباط، مشاوره و سفارش اثر</h2>
+        <p class="contact-desc">
+          جهت استعلام قیمت اصل اثر، هماهنگی برای خرید نسخه‌های چاپی محدود و یا سفارش آثار اختصاصی، می‌توانید مستقیماً در ارتباط باشید.
+        </p>
+
         <div class="contact-actions">
-          <a href="https://instagram.com" target="_blank" class="btn btn-dark">صفحه اینستاگرام</a>
-          <a href="mailto:info@arvinology.art" class="btn btn-outline">ارسال ایمیل</a>
+          <a href="https://instagram.com" target="_blank" class="btn-contact primary">صفحه اینستاگرام</a>
+          <a href="mailto:info@arvinology.com" class="btn-contact secondary">ارسال ایمیل مستقیم</a>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
+      <p>© 2026 ARVINOLOGY · کلیه حقوق محفوظ است</p>
     </footer>
   </div>
 
