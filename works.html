@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>آثار | Arvinology</title>
+  <title>گالری آثار | Arvinology</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -34,7 +34,7 @@
       align-items: center;
       padding-bottom: 25px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      margin-bottom: 70px;
+      margin-bottom: 60px;
     }
 
     .logo {
@@ -66,7 +66,7 @@
 
     .page-header {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .page-tag {
@@ -82,121 +82,151 @@
     .page-title {
       font-size: 2.4rem;
       font-weight: 900;
+      color: #171717;
     }
 
-    /* کارت آثار */
-    .artwork-card {
-      background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 12px;
-      padding: 35px;
-      margin-bottom: 50px;
+    /* گرید گالری آثار (سبک گالری هنری) */
+    .gallery-grid {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
+      margin-bottom: 60px;
     }
 
-    .artwork-card img {
-      width: 100%;
-      height: auto;
-      max-height: 480px;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
-      background-color: #eee;
-    }
-
-    .artwork-info h2 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-
-    .artwork-meta {
-      font-size: 0.9rem;
-      color: #7a6e5f;
-      margin-bottom: 18px;
-      font-weight: 600;
-      letter-spacing: 1px0;
-      margin-bottom: 10px;
-    }
-
-    .page-title {
-      font-size: 2.4rem;
-      font-weight: 900;
-    }
-
-    /* کارت آثار */
-    .artwork-card {
+    .art-card {
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 12px;
-      padding: 35px;
-      margin-bottom: 50px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 40px;
-      align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .artwork-card img {
+    .art-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .img-wrapper {
       width: 100%;
-      height: auto;
-      max-height: 480px;
-      object-fit: cover;
-      border-radius: 8px;
-      display: block;
+      height: 380px;
       background-color: #eee;
+      position: relative;
+      overflow: hidden;
     }
 
-    .artwork-info h2 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin-bottom: 8px;
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
     }
 
-    .artwork-meta {
-      font-size: 0.9rem;
-      color: #7a6e5f;
-      margin-bottom: 18px;
+    .art-card:hover .img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(23, 23, 23, 0.85);
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 1px;
+      backdrop-filter: blur(4px);
     }
 
-    .artwork-desc {
-      font-size: 0.98rem;
+    .card-info {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #171717;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: #7a6e5f;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .card-desc {
+      font-size: 0.92rem;
       color: #444;
-      margin-bottom: 25px;
-      line-height: 1.9;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      flex-grow: 1;
     }
 
-    .badge-commission {
-      display: inline-block;
+    .card-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding-top: 18px;
+      margin-top: auto;
+    }
+
+    .sizes-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .size-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .size-tag {
+      font-size: 0.8rem;
+      padding: 4px 10px;
       background: #faf8f5;
       border: 1px solid #ded6ca;
-      color: #7a6e5f;
-      : #ffffff;
-      padding: 12px 26px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      direction: ltr;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .btn-action {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #171717;
+      color: #ffffff;
+      padding: 11px 0;
+      border-radius: 6px;
+      font-size: 0.9rem;
       font-weight: 600;
       transition: background 0.2s ease;
     }
 
-    .btn-inquiry:hover {
-      background: #333333;
+    .btn-action:hover {
+      background: #333;
     }
 
-    .btn-inquiry.outline {
+    .btn-action.secondary {
       background: transparent;
       color: #171717;
       border: 1.5px solid #171717;
     }
 
-    .btn-inquiry.outline:hover {
+    .btn-action.secondary:hover {
       background: #171717;
       color: #ffffff;
     }
@@ -207,14 +237,14 @@
       color: #888;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
       padding-top: 30px;
-      margin-top: 50px;
     }
 
-    @media (max-width: 850px) {
-      .artwork-card {
+    @media (max-width: 768px) {
+      .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
-        padding: 24px;
+      }
+      .img-wrapper {
+        height: 320px;
       }
     }
   </style>
@@ -234,53 +264,59 @@
 
     <main>
       <div class="page-header">
-        <span class="page-tag">ARVINOLOGY · WORKS</span>
-        <h1 class="page-title">گالری آثار</h1>
+        <span class="page-tag">ARVINOLOGY · GALLERY</span>
+        <h1 class="page-title">مجموعه آثار</h1>
       </div>
 
-      <!-- اثر ۱: اسب و فرش (دارای قابلیت چاپ و خرید اصل اثر) -->
-      <article class="artwork-card">
-        <div>
-          <img src="horse.jpg" alt="نقاشی اسب و فرش - آروین مرادی">
-        </div>
-        <div class="artwork-info">
-          <h2>اسب و فرش</h2>
-          <div class="artwork-meta">2026 · ابعاد اثر اصلی: ۱۲۰ × ۸۰ سانتی‌متر</div>
-          <p class="artwork-desc">
-            ترکیبی از اصالت اسب ایرانی و تار و پود دست‌بافته‌ها؛ روایتی معاصر از نقوش کهن و بازآفرینی حسی هویت.
-          </p>
-
-          <div class="print-box">
-            <div class="print-box-title">ابعاد چاپ باکیفیت فاین‌آرت (سانتی‌متر):</div>
-            <div class="size-options">
-              <span class="size-badge">۳۰ × ۴۵ cm</span>
-              <span class="size-badge">۵۰ × ۷۵ cm</span>
-              <span class="size-badge">۷۰ × ۱۰۵ cm</span>
+      <div class="gallery-grid">
+        
+        <!-- کارت ۱: اسب و فرش -->
+        <article class="art-card">
+          <div class="img-wrapper">
+            <img src="images/painting-01.jpg" onerror="this.onerror=null; this.src='horse.jpg';" alt="نقاشی اسب و فرش">
+            <span class="status-badge">نسخه اصل + چاپ محدود</span>
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">اسب و فرش</h2>
+            <div class="card-meta">2026 · ابعاد اثر اصلی: ۱۲۰ × ۸۰ cm</div>
+            <p class="card-desc">
+              ترکیبی از اصالت اسب ایرانی و نقوش دست‌بافته‌ها؛ روایتی معاصر از فرم، هویت و خاطره جمعی.
+            </p>
+            <div class="card-footer">
+              <div class="sizes-title">سایزهای چاپی فاین‌آرت (نسبت ۳:۲):</div>
+              <div class="size-tags">
+                <span class="size-tag">۳۰ × ۴۵ cm</span>
+                <span class="size-tag">۵۰ × ۷۵ cm</span>
+                <span class="size-tag">۷۰ × ۱۰۵ cm</span>
+              </div>
+              <a href="about.html#contact" class="btn-action">استعلام و ثبت سفارش</a>
             </div>
-            <a href="about.html#contact" class="btn-inquiry">ثبت سفارش چاپ یا اصل اثر</a>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <!-- اثر ۲: اثر سفارشی (کمیسیون اختصاصی / بدون قابلیت چاپ عمومی) -->
-      <article class="artwork-card">
-        <div>
-          <img src="custom-work.jpg" alt="اثر سفارشی - آروین مرادی">
-        </div>
-        <div class="artwork-info">
-          <span class="badge-commission">سفارش اختصاصی · مجموعه خصوصی</span>
-          <h2>اثر سفارشی (کمیسیون)</h2>
-          <div class="artwork-meta">2026 · تکنیک: ترکیب مواد روی بوم</div>
-          <p class="artwork-desc">
-            این اثر به سفارش اختصاصی برای مجموعه شخصی طراحی و اجرا شده است. به دلیل حفظ انحصار اثر، نسخه چاپی از آن ارائه نمی‌گردد.
-          </p>
-
-          <div class="print-box">
-            <a href="about.html#contact" class="btn-inquiry outline">سفارش اثر اختصاصی و کمیسیون</a>
+        <!-- کارت ۲: اثر سفارشی -->
+        <article class="art-card">
+          <div class="img-wrapper">
+            <img src="images/painting-02.jpg" onerror="this.onerror=null; this.src='custom-work.jpg';" alt="اثر سفارشی و کمیسیون">
+            <span class="status-badge">مجموعه خصوصی</span>
           </div>
-        </div>
-      </article>
+          <div class="card-info">
+            <h2 class="card-title">اثر سفارشی (کمیسیون)</h2>
+            <div class="card-meta">2026 · تکنیک: ترکیب مواد روی بوم</div>
+            <p class="card-desc">
+              اجرا شده به سفارش اختصاصی. به منظور احترام به انحصار مالک، نسخه‌ای از این اثر تکثیر یا چاپ نمی‌گردد.
+            </p>
+            <div class="card-footer">
+              <div class="sizes-title" style="visibility: hidden;">—</div>
+              <div class="size-tags" style="visibility: hidden;">
+                <span class="size-tag">—</span>
+              </div>
+              <a href="about.html#contact" class="btn-action secondary">سفارش اثر اختصاصی</a>
+            </div>
+          </div>
+        </article>
 
+      </div>
     </main>
 
     <footer>
