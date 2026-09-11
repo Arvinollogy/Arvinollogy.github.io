@@ -17,17 +17,17 @@
       background-color: #f7f5f0;
       color: #171717;
       font-family: 'Vazirmatn', sans-serif;
-      line-height: 1.9;
+      line-height: 1.8;
       padding: 0 24px;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 40px 0 90px;
     }
 
-    /* هدر یکپارچه */
+    /* هدر */
     header {
       display: flex;
       justify-content: space-between;
@@ -64,10 +64,9 @@
       font-weight: 600;
     }
 
-    /* عنوان صفحه */
-    .page-header {
-      text-align: center;
-      margin-bottom: 50px;
+    /* بخش معرفی */
+    .about-header {
+      margin-bottom: 45px;
     }
 
     .page-tag {
@@ -81,53 +80,42 @@
     }
 
     .page-title {
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       font-weight: 900;
       color: #171717;
+      margin-bottom: 15px;
     }
 
-    /* متن بیوگرافی و مانیفست */
-    .about-card {
+    .about-content {
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.07);
+      padding: 40px;
       border-radius: 12px;
-      padding: 45px;
-      margin-bottom: 50px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+      margin-bottom: 40px;
     }
 
     .about-content p {
       font-size: 1.05rem;
-      color: #333333;
+      color: #333;
       margin-bottom: 24px;
       text-align: justify;
-      line-height: 2.1;
+      line-height: 2;
     }
 
     .about-content p:last-child {
       margin-bottom: 0;
     }
 
-    .highlight-quote {
-      border-right: 3px solid #7a6e5f;
-      padding-right: 20px;
-      margin: 30px 0;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #171717;
-      background: #faf8f5;
-      padding: 18px 20px;
-      border-radius: 0 8px 8px 0;
-    }
-
-    /* بخش ارتباط و سفارش */
+    /* بخش ارتباط */
     .contact-section {
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.07);
-      border-radius: 12px;
       padding: 40px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
       text-align: center;
-      scroll-margin-top: 40px;
+      margin-bottom: 60px;
     }
 
     .contact-title {
@@ -140,46 +128,49 @@
     .contact-desc {
       font-size: 0.95rem;
       color: #666;
-      margin-bottom: 28px;
+      margin-bottom: 30px;
     }
 
-    .contact-actions {
+    .contact-links {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 15px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
-    .btn-contact {
+    .contact-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
+      gap: 10px;
       padding: 12px 28px;
-      border-radius: 6px;
+      border-radius: 8px;
+      text-decoration: none;
       font-size: 0.95rem;
       font-weight: 600;
       transition: all 0.2s ease;
     }
 
-    .btn-contact.primary {
+    .contact-btn.primary {
       background: #171717;
       color: #ffffff;
     }
 
-    .btn-contact.primary:hover {
+    .contact-btn.primary:hover {
       background: #333333;
+      transform: translateY(-2px);
     }
 
-    .btn-contact.secondary {
-      background: #faf8f5;
-      border: 1.5px solid #ded6ca;
-      color: #2c2925;
+    .contact-btn.secondary {
+      background: transparent;
+      color: #171717;
+      border: 1.5px solid #171717;
     }
 
-    .btn-contact.secondary:hover {
-      background: #f0ebe1;
+    .contact-btn.secondary:hover {
+      background: #171717;
+      color: #ffffff;
+      transform: translateY(-2px);
     }
 
     footer {
@@ -188,15 +179,17 @@
       color: #888;
       border-top: 1px solid rgba(0, 0, 0, 0.08);
       padding-top: 30px;
-      margin-top: 70px;
     }
 
-    @media (max-width: 650px) {
-      .about-card, .contact-section {
+    @media (max-width: 600px) {
+      .about-content, .contact-section {
         padding: 25px;
       }
-      .page-title {
-        font-size: 1.9rem;
+      .contact-links {
+        flex-direction: column;
+      }
+      .contact-btn {
+        width: 100%;
       }
     }
   </style>
@@ -215,37 +208,31 @@
     </header>
 
     <main>
-      <div class="page-header">
-        <span class="page-tag">ARVINOLOGY · MANIFESTO</span>
+      <div class="about-header">
+        <span class="page-tag">BIOGRAPHY · STATEMENT</span>
         <h1 class="page-title">درباره آروین مرادی</h1>
       </div>
 
-      <section class="about-card">
-        <div class="about-content">
-          <p>
-            هنر برای من نه صرفاً بازنمایی بصری، بلکه کاوشی پیوسته در میان هویت، سنت و زبان معاصر است. در پروژه‌ی <strong>Arvinology</strong>، تلاش می‌کنم پلی میان ریشه‌های عمیق هنر و فرهنگ ایرانی با ساختارهای مدرن و مینیمال خلق کنم.
-          </p>
-
-          <div class="highlight-quote">
-            «تار و پود اصالت و موتیف‌های بومی در مواجهه با فرم‌های معاصر، زبانی نو برای روایت تاریخ و احساس می‌سازند.»
-          </div>
-
-          <p>
-            تمرکز من بر خلق آثاری با هویت اصیل، بهره‌گیری از نمادها و موتیف‌های شرقی در فضایی امروزین، و همچنین هدایت فضاهای گفت‌وگو و رویدادهای هنری در راستای پیوند جامعه با هنرهای تجسمی است. هر اثر داستانی اختصاصی از پیوند میان گذشته و اکنون را بازگو می‌کند.
-          </p>
-        </div>
-      </section>
-
-      <!-- بخش ارتباط و ثبت سفارش اثر -->
-      <section id="contact" class="contact-section">
-        <h2 class="contact-title">ارتباط، مشاوره و سفارش اثر</h2>
-        <p class="contact-desc">
-          جهت استعلام قیمت اصل اثر، هماهنگی برای خرید نسخه‌های چاپی محدود و یا سفارش آثار اختصاصی، می‌توانید مستقیماً در ارتباط باشید.
+      <article class="about-content">
+        <p>
+          آروین مرادی، هنرمند تجسمی و پژوهشگر فرم‌های معاصر ایرانی. تمرکز اصلی آثار او بر بازخوانی و پیوند نشانه‌ها، موتیف‌ها و عناصر هویتی کهن مانند اسب و نقش‌مایه‌های دست‌بافته‌های بومی در بستری مینیمال و امروزی است.
         </p>
+        <p>
+          در مجموعه «آروینولوژی»، هر اثر حاصل تأملی بر نسبت میان میراث دیداری، بافت‌های حسی و زیبایی‌شناسی مدرن است؛ تلاشی برای خلق روایتی که همزمان ریشه در اصالت تاریخی و نگاه به آینده دارد.
+        </p>
+      </article>
 
-        <div class="contact-actions">
-          <a href="https://instagram.com" target="_blank" class="btn-contact primary">صفحه اینستاگرام</a>
-          <a href="mailto:info@arvinology.com" class="btn-contact secondary">ارسال ایمیل مستقیم</a>
+      <!-- بخش ارتباط و سفارش -->
+      <section id="contact" class="contact-section">
+        <h2 class="contact-title">ارتباط و سفارش اثر</h2>
+        <p class="contact-desc">جهت خرید آثار اصلی، سفارش نسخه‌های چاپی محدود یا همکاری در پروژه‌های سفارشی از راه‌های زیر در ارتباط باشید:</p>
+        <div class="contact-links">
+          <a href="mailto:rrvinmoradi@gmail.com" class="contact-btn primary">
+            ارسال ایمیل (rrvinmoradi@gmail.com)
+          </a>
+          <a href="https://instagram.com/arvinollogy" target="_blank" rel="noopener noreferrer" class="contact-btn secondary">
+            اینستاگرام (@arvinollogy)
+          </a>
         </div>
       </section>
     </main>
