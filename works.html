@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>گالری آثار | Arvinology</title>
+  <title>آثار | ARVINOLOGY</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -22,12 +22,12 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
       padding: 40px 0 90px;
     }
 
-    /* هدر */
+    /* هدر یکپارچه */
     header {
       display: flex;
       justify-content: space-between;
@@ -64,179 +64,200 @@
       font-weight: 600;
     }
 
+    /* عنوان صفحه */
     .page-header {
       text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .page-tag {
-      display: block;
-      font-size: 0.8rem;
-      letter-spacing: 4px;
-      color: #7a6e5f;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-bottom: 10px;
+      max-width: 700px;
+      margin: 0 auto 50px;
     }
 
     .page-title {
       font-size: 2.4rem;
       font-weight: 900;
-      color: #171717;
+      margin-bottom: 12px;
     }
 
-    /* گرید گالری آثار (سبک گالری هنری) */
+    .page-subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* فیلترها */
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: #555;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: #171717;
+      color: #ffffff;
+      border-color: #171717;
+    }
+
+    /* گرید نمایش آثار */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
-      margin-bottom: 60px;
+      gap: 40px;
+      margin-bottom: 80px;
     }
 
-    .art-card {
+    .gallery-item {
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 12px;
       overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .art-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-    }
-
-    /* کادر نمایش نقاشی به صورت کامل و بدون برش */
-    .img-wrapper {
+    .gallery-img-box {
       width: 100%;
       height: 420px;
       background-color: #f0ece4;
-      position: relative;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px;
+      padding: 16px;
+      position: relative;
     }
 
-    .img-wrapper img {
+    .gallery-img-box img {
       max-width: 100%;
       max-height: 100%;
       width: auto;
       height: auto;
       object-fit: contain;
       display: block;
-      transition: transform 0.4s ease;
     }
 
-    .art-card:hover .img-wrapper img {
-      transform: scale(1.02);
-    }
-
-    .status-badge {
+    .badge {
       position: absolute;
       top: 15px;
       right: 15px;
       background: rgba(23, 23, 23, 0.85);
       color: #ffffff;
-      padding: 6px 14px;
+      padding: 5px 12px;
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 600;
       backdrop-filter: blur(4px);
-      z-index: 2;
     }
 
-    .card-info {
-      padding: 28px;
+    .gallery-content {
+      padding: 30px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
-    .card-title {
-      font-size: 1.35rem;
+    .item-title {
+      font-size: 1.4rem;
       font-weight: 800;
       margin-bottom: 6px;
-      color: #171717;
     }
 
-    .card-meta {
+    .item-specs {
       font-size: 0.85rem;
       color: #7a6e5f;
       font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    .card-desc {
-      font-size: 0.92rem;
+    .item-desc {
+      font-size: 0.95rem;
       color: #444;
       line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       flex-grow: 1;
     }
 
-    .card-footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
-      padding-top: 18px;
-      margin-top: auto;
+    /* جدول سایزها و قیمت‌های چاپ برای تابلوی اسب و فرش */
+    .print-options {
+      background: #fbf9f5;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 22px;
     }
 
-    .sizes-title {
-      font-size: 0.8rem;
+    .print-header {
+      font-size: 0.88rem;
       font-weight: 700;
-      color: #666;
-      margin-bottom: 8px;
+      color: #171717;
+      margin-bottom: 10px;
     }
 
-    .size-tags {
+    .print-row {
       display: flex;
-      gap: 8px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding: 7px 0;
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
     }
 
-    .size-tag {
-      font-size: 0.8rem;
-      padding: 4px 10px;
-      background: #faf8f5;
-      border: 1px solid #ded6ca;
-      border-radius: 6px;
-      direction: ltr;
-      font-weight: 600;
-      color: #333;
+    .print-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .btn-action {
-      display: block;
-      width: 100%;
+    .print-size {
+      color: #666;
+    }
+
+    .print-price {
+      font-weight: 700;
+      color: #171717;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-full {
+      flex: 1;
       text-align: center;
       text-decoration: none;
       background: #171717;
       color: #ffffff;
-      padding: 11px 0;
-      border-radius: 6px;
+      padding: 12px;
+      border-radius: 8px;
       font-size: 0.9rem;
       font-weight: 600;
       transition: background 0.2s ease;
     }
 
-    .btn-action:hover {
+    .btn-full:hover {
       background: #333;
     }
 
-    .btn-action.secondary {
+    .btn-full.outline {
       background: transparent;
       color: #171717;
-      border: 1.5px solid #171717;
+      border: 1px solid #171717;
     }
 
-    .btn-action.secondary:hover {
+    .btn-full.outline:hover {
       background: #171717;
-      color: #ffffff;
+      color: #fff;
     }
 
     footer {
@@ -247,11 +268,11 @@
       padding-top: 30px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 800px) {
       .gallery-grid {
         grid-template-columns: 1fr;
       }
-      .img-wrapper {
+      .gallery-img-box {
         height: 320px;
       }
     }
@@ -272,54 +293,83 @@
 
     <main>
       <div class="page-header">
-        <span class="page-tag">ARVINOLOGY · GALLERY</span>
         <h1 class="page-title">مجموعه آثار</h1>
+        <p class="page-subtitle">کاوش در پیوند اصالت فرم، نقوش سنتی و فیگوراتیو معاصر</p>
       </div>
 
+      <!-- فیلترها -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" onclick="filterWorks('all')">همه آثار</button>
+        <button class="filter-btn" onclick="filterWorks('original')">اصل آثار</button>
+        <button class="filter-btn" onclick="filterWorks('prints')">چاپ آثار</button>
+      </div>
+
+      <!-- گرید آثار -->
       <div class="gallery-grid">
         
-        <!-- کارت ۱: اسب و فرش -->
-        <article class="art-card">
-          <div class="img-wrapper">
+        <!-- ۱. تابلوی اسب و فرش -->
+        <article class="gallery-item" data-category="original prints">
+          <div class="gallery-img-box">
             <img src="images/painting-01.jpg" onerror="this.onerror=null; this.src='horse.jpg';" alt="نقاشی اسب و فرش">
-            <span class="status-badge">نسخه اصل + چاپ محدود</span>
+            <span class="badge">اصل + چاپ محدود</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">اسب و فرش</h2>
-            <div class="card-meta">2026 · ابعاد اثر اصلی: ۱۲۰ × ۸۰ cm</div>
-            <p class="card-desc">
-              ترکیبی از اصالت اسب ایرانی و نقوش دست‌بافته‌ها؛ روایتی معاصر از فرم، هویت و خاطره جمعی.
+          <div class="gallery-content">
+            <h2 class="item-title">اسب و فرش</h2>
+            <div class="item-specs">2026 · رنگ‌روغن روی بوم · ابعاد اصل: ۱۲۰ × ۸۰ سانتی‌متر</div>
+            <p class="item-desc">
+              بازنمایی نمادین اسب ایرانی در پیوند با هندسه و نقوش فرش سنتی. این اثر با رنگ‌روغن اجرا شده و نسخه اصل آن همراه با نسخه‌های محدود چاپ فاین‌آرت روی بوم قابل سفارش است.
             </p>
-            <div class="card-footer">
-              <div class="sizes-title">سایزهای چاپی فاین‌آرت (نسبت ۳:۲):</div>
-              <div class="size-tags">
-                <span class="size-tag">۳۰ × ۴۵ cm</span>
-                <span class="size-tag">۵۰ × ۷۵ cm</span>
-                <span class="size-tag">۷۰ × ۱۰۵ cm</span>
+
+            <!-- قیمت‌های جدید و دقیق چاپ -->
+            <div class="print-options">
+              <div class="print-header">گزینه‌های چاپ فاین‌آرت (نسخه محدود ۲۵ عددی):</div>
+              <div class="print-row">
+                <span class="print-size">سایز بزرگ (70 × 105 cm)</span>
+                <span class="print-price">۱۸,۰۰۰,۰۰۰ تومان</span>
               </div>
-              <a href="about.html#contact" class="btn-action">استعلام و ثبت سفارش</a>
+              <div class="print-row">
+                <span class="print-size">سایز متوسط (50 × 75 cm)</span>
+                <span class="print-price">۱۵,۰۰۰,۰۰۰ تومان</span>
+              </div>
+              <div class="print-row">
+                <span class="print-size">سایز کوچک (30 × 45 cm)</span>
+                <span class="print-price">۱۲,۰۰۰,۰۰۰ تومان</span>
+              </div>
+            </div>
+
+            <div class="item-actions">
+              <a href="about.html#contact" class="btn-full">استعلام خرید یا سفارش چاپ</a>
             </div>
           </div>
         </article>
 
-        <!-- کارت ۲: اثر سفارشی -->
-        <article class="art-card">
-          <div class="img-wrapper">
-            <img src="images/painting-02.jpg" onerror="this.onerror=null; this.src='custom-work.jpg';" alt="اثر سفارشی و کمیسیون">
-            <span class="status-badge">مجموعه خصوصی</span>
+        <!-- ۲. اثر سفارشی -->
+        <article class="gallery-item" data-category="original">
+          <div class="gallery-img-box">
+            <img src="images/painting-02.jpg" onerror="this.onerror=null; this.src='custom-work.jpg';" alt="اثر سفارشی">
+            <span class="badge">مجموعه خصوصی</span>
           </div>
-          <div class="card-info">
-            <h2 class="card-title">اثر سفارشی (کمیسیون)</h2>
-            <div class="card-meta">2026 · تکنیک: ترکیب مواد روی بوم</div>
-            <p class="card-desc">
-              اجرا شده به سفارش اختصاصی. به منظور احترام به انحصار مالک، نسخه‌ای از این اثر تکثیر یا چاپ نمی‌گردد.
+          <div class="gallery-content">
+            <h2 class="item-title">اثر سفارشی (کمیسیون)</h2>
+            <div class="item-specs">2026 · ترکیب مواد روی بوم · ابعاد اختصاصی</div>
+            <p class="item-desc">
+              این اثر به‌صورت اختصاصی و بر اساس هویت دیداری سفارش‌دهنده طراحی و اجرا شده است. این اثر صرفاً جهت نمایش بوده و چاپ مجدد ندارد.
             </p>
-            <div class="card-footer">
-              <div class="sizes-title" style="visibility: hidden;">—</div>
-              <div class="size-tags" style="visibility: hidden;">
-                <span class="size-tag">—</span>
+
+            <div class="print-options" style="background: #fafafa;">
+              <div class="print-header" style="color: #666;">وضعیت اثر:</div>
+              <div class="print-row">
+                <span class="print-size">حق تکثیر / چاپ</span>
+                <span class="print-price" style="color: #888;">واگذار شده (غیرقابل چاپ)</span>
               </div>
-              <a href="about.html#contact" class="btn-action secondary">سفارش اثر اختصاصی</a>
+              <div class="print-row">
+                <span class="print-size">پروژه‌های مشابه</span>
+                <span class="print-price">پذیرش سفارش با هماهنگی</span>
+              </div>
+            </div>
+
+            <div class="item-actions">
+              <a href="about.html#contact" class="btn-full outline">سفارش پروژه اختصاصی</a>
             </div>
           </div>
         </article>
@@ -328,9 +378,30 @@
     </main>
 
     <footer>
-      <p>© 2026 ARVINOLOGY · کلیه حقوق محفوظ است</p>
+      <p>© 2026 ARVINOLOGY · هویت ایرانی، روی بوم</p>
     </footer>
   </div>
 
+  <script>
+    function filterWorks(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all') {
+          item.style.display = 'flex';
+        } else {
+          const categories = item.getAttribute('data-category');
+          if (categories && categories.includes(category)) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
